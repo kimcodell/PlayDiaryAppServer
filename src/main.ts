@@ -1,9 +1,12 @@
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+  app.useGlobalPipes(new ValidationPipe());
+
   const config = new DocumentBuilder()
     .setTitle('모바일 어플리케이션 API')
     .setDescription('공연 정보 및 기록 모바일 어플리케이션 API')

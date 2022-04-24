@@ -23,6 +23,7 @@
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
 ## Description
+
 공연 정보 제공 및 관람 기록 모바일 어플리케이션의 서버
 
 ## Installation
@@ -32,6 +33,23 @@ $ npm install
 ```
 
 ## Running the app
+
+.env 파일 생성 후
+
+```env
+DB_HOST=localhost
+DB_USER_NAME=...
+DB_PASSWORD=...
+DB_NAME=play_diary_app
+
+SECRET_KEY=...
+
+PORT=3000
+
+MODE=dev
+```
+
+추가
 
 ```bash
 # development

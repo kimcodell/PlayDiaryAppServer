@@ -1,0 +1,1 @@
+INSERT INTO `play_diary_app`.`play` (`title`, `status`, `startAt`, `endAt`, `runtime`, `genre`, `limitedAge`, `isOpenrun`, `story`, `poster`, `companyId`, `auditoriumId`) VALUES ('레베카', '1', '2022-04-15', '2022-05-06', '160분', '1', '15', '0', '재밌는 이야기', 'https://www.incheon.go.kr/comm/getImage?srvcId=IRPblprfrDspy&upperNo=9611&fileTy=IMG&fileNo=1', '1', '1');

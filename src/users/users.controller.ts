@@ -2,6 +2,11 @@ import { Controller, Get, Param, Patch, Post } from '@nestjs/common';
 
 @Controller('user')
 export class UsersController {
+  @Get('me')
+  getUserMe() {
+    return 'my info';
+  }
+
   @Get(':userId')
   getUserInfo(@Param('userId') id: string) {
     return 'userInfo';
