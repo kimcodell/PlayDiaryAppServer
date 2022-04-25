@@ -1,3 +1,4 @@
+import { RatingEntity } from './models/rating.entity';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -41,6 +42,7 @@ import { ReservationEntity } from './models/reservation.entity';
         UserEntity,
         FollowEntity,
         ReservationEntity,
+        RatingEntity,
       ],
       synchronize: true, //TODO 데이터 저장 후에는 false로 수정 필수.
       logging: true,

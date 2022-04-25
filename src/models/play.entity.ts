@@ -4,12 +4,15 @@ import {
   Entity,
   ManyToOne,
   OneToMany,
+  OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { AuditoriumEntity } from './auditorium.entity';
 import { CompanyEntity } from './company.entity';
 import { FilmographyEntity } from './filmography.entity';
+import { RatingEntity } from './rating.entity';
 import { ReservationEntity } from './reservation.entity';
+import { UrlEntity } from './url.entity';
 
 @Entity({ name: 'play' })
 export class PlayEntity {
@@ -78,4 +81,10 @@ export class PlayEntity {
 
   @OneToMany(() => ReservationEntity, (reservation) => reservation.play)
   reservation: ReservationEntity[];
+
+  @OneToOne(() => UrlEntity)
+  url: UrlEntity;
+
+  @OneToMany(() => RatingEntity, (rating) => rating.play)
+  rating: RatingEntity[];
 }

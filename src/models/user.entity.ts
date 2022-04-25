@@ -18,6 +18,7 @@ import {
 } from 'typeorm';
 import { FollowEntity } from './follow.entity';
 import { LikedActorEntity } from './likedActor.entity';
+import { RatingEntity } from './rating.entity';
 import { ReservationEntity } from './reservation.entity';
 
 @Entity({ name: 'user' })
@@ -75,4 +76,7 @@ export class UserEntity {
 
   @OneToMany(() => ReservationEntity, (reservation) => reservation.user)
   reservation: ReservationEntity[];
+
+  @OneToMany(() => RatingEntity, (rating) => rating.user)
+  rating: RatingEntity[];
 }

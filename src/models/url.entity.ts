@@ -1,11 +1,13 @@
 import { PlayEntity } from './play.entity';
-import { Column, Entity, OneToOne, PrimaryColumn } from 'typeorm';
+import { Column, Entity, JoinColumn, OneToOne, PrimaryColumn } from 'typeorm';
 import { IsUrl } from 'class-validator';
 
 @Entity({ name: 'play_url' })
 export class UrlEntity {
-  @PrimaryColumn({ type: 'int', name: 'playId' })
+  @PrimaryColumn()
+  playId: number;
   @OneToOne(() => PlayEntity)
+  @JoinColumn({ name: 'playId' })
   play: PlayEntity;
 
   @IsUrl()
