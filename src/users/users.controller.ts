@@ -9,13 +9,16 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { Request } from 'express';
+import { UsersService } from './users.service';
 
 @Controller('user')
 export class UsersController {
+  constructor(private readonly usersService: UsersService) {}
+
   @Get('me')
   @UseGuards(JwtAuthGuard)
   getUserMe(@Req() req: Request) {
-    return req.user + 'my info';
+    return this.usersService.getUserInfo(req.user);
   }
 
   @Get(':userId')

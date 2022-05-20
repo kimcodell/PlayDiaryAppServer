@@ -1,4 +1,5 @@
 -- 유저 정보 추가
+-- user 1번 비밀번호 0password123
 INSERT INTO `play_diary_app`.`user` (`email`, `password`, `nickname`, `introduction`, `registerType`) VALUES ('kimminhyuk02@naver.com', '$2a$11$Yk1bws99n8goe/FkAsN64ufg44bO4qie5o9PfbTfrJVDANucUPDSC', '닉네임', '나의 자기소개', '1');
 INSERT INTO `play_diary_app`.`user` (`email`, `password`, `nickname`, `introduction`, `registerType`, `profileImgUrl`) VALUES ('kimminhyuk0719@gmail.com', '', '타 유저', '타 유저 자기소개', '2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw_6cwV9Py2-gkGyj9oxgeOOg7bU6ld9nbog&usqp=CAU');
 INSERT INTO `play_diary_app`.`user` (`email`, `password`, `nickname`, `introduction`, `registerType`, `profileImgUrl`) VALUES ('user2@naver.com', '', '타 유저2', '타 유저 자기소개2', '2', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQw_6cwV9Py2-gkGyj9oxgeOOg7bU6ld9nbog&usqp=CAU');
@@ -21,5 +22,31 @@ INSERT INTO `play_diary_app`.`play` (`id`, `title`, `status`, `startAt`, `endAt`
 INSERT INTO `play_diary_app`.`play` (`id`, `title`, `status`, `startAt`, `endAt`, `runtime`, `genre`, `limitedAge`, `isOpenrun`, `story`, `poster`, `companyId`, `auditoriumId`) VALUES ('4', '옥탑방 고양이', '1', '2022-04-16', '2022-05-16', '120분', '2', '15', '0', '재밌는 이야기', 'https://www.incheon.go.kr/comm/getImage?srvcId=IRPblprfrDspy&upperNo=9611&fileTy=IMG&fileNo=1', '3', '3');
 INSERT INTO `play_diary_app`.`play` (`id`, `title`, `status`, `startAt`, `endAt`, `runtime`, `genre`, `limitedAge`, `isOpenrun`, `story`, `poster`, `companyId`, `auditoriumId`) VALUES ('5', '아이다', '1', '2022-04-16', '2022-05-16', '140분', '1', '15', '0', '재밌는 이야기', 'https://www.incheon.go.kr/comm/getImage?srvcId=IRPblprfrDspy&upperNo=9611&fileTy=IMG&fileNo=1', '3', '3');
 
--- 
+-- 팔로우 정보 추가
+INSERT INTO `play_diary_app`.`follow` (`followerId`, `followingId`) VALUES ('1', '2');
+INSERT INTO `play_diary_app`.`follow` (`followerId`, `followingId`) VALUES ('1', '3');
+INSERT INTO `play_diary_app`.`follow` (`followerId`, `followingId`) VALUES ('2', '1');
+INSERT INTO `play_diary_app`.`follow` (`followerId`, `followingId`) VALUES ('2', '4');
+INSERT INTO `play_diary_app`.`follow` (`followerId`, `followingId`) VALUES ('3', '1');
+INSERT INTO `play_diary_app`.`follow` (`followerId`, `followingId`) VALUES ('3', '2');
+
+-- want play 정보 추가
+INSERT INTO `play_diary_app`.`want_play` (`userId`, `playId`) VALUES ('1', '2');
+INSERT INTO `play_diary_app`.`want_play` (`userId`, `playId`) VALUES ('1', '4');
+INSERT INTO `play_diary_app`.`want_play` (`userId`, `playId`) VALUES ('2', '1');
+INSERT INTO `play_diary_app`.`want_play` (`userId`, `playId`) VALUES ('3', '5');
+
+-- rating 정보 추가
+INSERT INTO `play_diary_app`.`rating` (`id`, `viewNumber`, `rate`, `viewedDate`, `userId`, `playId`) VALUES ('1', '1', '4.5', '2022-04-16', '1', '1');
+INSERT INTO `play_diary_app`.`rating` (`id`, `viewNumber`, `rate`, `viewedDate`, `userId`, `playId`) VALUES ('2', '1', '3', '2022-05-02', '1', '3');
+INSERT INTO `play_diary_app`.`rating` (`id`, `viewNumber`, `rate`, `viewedDate`, `userId`, `playId`) VALUES ('3', '1', '3', '2022-05-02', '2', '3');
+INSERT INTO `play_diary_app`.`rating` (`id`, `viewNumber`, `rate`, `viewedDate`, `userId`, `playId`) VALUES ('4', '1', '2.5', '2022-05-02', '3', '3');
+INSERT INTO `play_diary_app`.`rating` (`id`, `viewNumber`, `rate`, `viewedDate`, `userId`, `playId`) VALUES ('5', '1', '3', '2022-05-02', '4', '3');
+INSERT INTO `play_diary_app`.`rating` (`id`, `viewNumber`, `rate`, `viewedDate`, `userId`, `playId`) VALUES ('6', '2', '4', '2022-04-21', '1', '1');
+INSERT INTO `play_diary_app`.`rating` (`id`, `viewNumber`, `rate`, `viewedDate`, `userId`, `playId`) VALUES ('7', '1', '5', '2022-05-10', '2', '5');
+
+-- 리뷰 정보 추가
+
+
+-- reservation 정보 추가
 
