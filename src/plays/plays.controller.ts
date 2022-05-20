@@ -1,14 +1,24 @@
-import { Controller, Get } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  Query,
+  UsePipes,
+} from '@nestjs/common';
+import { PlaysService } from './plays.service';
 
 @Controller('play')
 export class PlaysController {
-  @Get('play')
-  getAllPlay() {
-    return 'play list';
+  constructor(private readonly playsService: PlaysService) {}
+
+  @Get()
+  getAllPlay(@Query('genre') genre: string) {
+    return this.playsService.getAllPlays(genre);
   }
 
-  @Get('musical')
-  getAllMusical() {
-    return 'musical list';
+  @Get(':playId')
+  getAllMusical(@Param('playId', ParseIntPipe) id: number) {
+    return this.playsService.getPlayDetail(id);
   }
 }

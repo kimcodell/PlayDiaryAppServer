@@ -17,7 +17,7 @@ export class AuditoriumEntity {
   size: 0 | 1 | 2; //0: undefined, 1: 대극장, 2: 중/소극장
 
   @IsString()
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', nullable: true })
   auditoriumApiCode: string;
 
   @OneToMany(() => PlayEntity, (play) => play.auditorium)

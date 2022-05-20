@@ -5,30 +5,36 @@ import {
   CreateDateColumn,
   Entity,
   ManyToOne,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { IsDate, IsInt, IsNumber, IsPositive } from 'class-validator';
 
 @Entity({ name: 'rating' })
 export class RatingEntity {
-  @PrimaryColumn({ type: 'int', name: 'userId' })
-  @ManyToOne(() => UserEntity)
+  @IsNumber()
+  @PrimaryGeneratedColumn()
+  id: number;
+
+  @ManyToOne(() => UserEntity, { nullable: false })
   user: UserEntity;
 
-  @PrimaryColumn({ type: 'int', name: 'playId' })
-  @ManyToOne(() => PlayEntity)
+  @ManyToOne(() => PlayEntity, { nullable: false })
   play: PlayEntity;
 
   @IsPositive()
   @IsInt()
-  @PrimaryColumn()
+  @Column({ type: 'int', nullable: false, default: 1 })
   viewNumber: number;
 
   @IsPositive()
   @IsNumber()
   @Column({ type: 'float', nullable: false })
   rate: number;
+
+  @IsDate()
+  @Column({ type: 'timestamp', nullable: true })
+  viewedDate: Date;
 
   @IsDate()
   @CreateDateColumn()

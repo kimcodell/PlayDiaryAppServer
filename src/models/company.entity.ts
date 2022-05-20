@@ -13,8 +13,8 @@ export class CompanyEntity {
   name: string;
 
   @IsString()
-  @Column({ type: 'varchar' })
-  auditoriumApiCode: string;
+  @Column({ type: 'varchar', nullable: true })
+  companyApiCode: string;
 
   @OneToMany(() => PlayEntity, (play) => play.company)
   plays: PlayEntity[];

@@ -20,6 +20,8 @@ import { FollowEntity } from './follow.entity';
 import { LikedActorEntity } from './likedActor.entity';
 import { RatingEntity } from './rating.entity';
 import { ReservationEntity } from './reservation.entity';
+import { WantPlayEntity } from './wantPlay.entity';
+import { ReviewEntity } from './review.entity';
 
 @Entity({ name: 'user' })
 export class UserEntity {
@@ -77,6 +79,12 @@ export class UserEntity {
   @OneToMany(() => ReservationEntity, (reservation) => reservation.user)
   reservation: ReservationEntity[];
 
+  @OneToMany(() => WantPlayEntity, (wantPlay) => wantPlay.user)
+  wantPlay: WantPlayEntity[];
+
   @OneToMany(() => RatingEntity, (rating) => rating.user)
   rating: RatingEntity[];
+
+  @OneToMany(() => ReviewEntity, (review) => review.user)
+  review: ReviewEntity[];
 }

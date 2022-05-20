@@ -17,6 +17,8 @@ import { FollowEntity } from './models/follow.entity';
 import { UrlEntity } from './models/url.entity';
 import { LikedActorEntity } from './models/likedActor.entity';
 import { ReservationEntity } from './models/reservation.entity';
+import { WantPlayEntity } from './models/wantPlay.entity';
+import { ReviewEntity } from './models/review.entity';
 
 @Module({
   imports: [
@@ -43,6 +45,8 @@ import { ReservationEntity } from './models/reservation.entity';
         FollowEntity,
         ReservationEntity,
         RatingEntity,
+        WantPlayEntity,
+        ReviewEntity,
       ],
       synchronize: true, //TODO 데이터 저장 후에는 false로 수정 필수.
       logging: true,

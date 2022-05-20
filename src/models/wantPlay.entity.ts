@@ -1,15 +1,9 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  ManyToOne,
-  PrimaryColumn,
-} from 'typeorm';
+import { CreateDateColumn, Entity, ManyToOne, PrimaryColumn } from 'typeorm';
 import { PlayEntity } from './play.entity';
 import { UserEntity } from './user.entity';
 
-@Entity({ name: 'reserved_play' })
-export class ReservationEntity {
+@Entity({ name: 'want_play' })
+export class WantPlayEntity {
   @PrimaryColumn({ type: 'int', name: 'userId' })
   @ManyToOne(() => UserEntity)
   user: UserEntity;
@@ -17,9 +11,6 @@ export class ReservationEntity {
   @PrimaryColumn({ type: 'int', name: 'playId' })
   @ManyToOne(() => PlayEntity)
   play: PlayEntity;
-
-  @Column({ type: 'timestamp', nullable: false })
-  reservationDate: Date;
 
   @CreateDateColumn()
   createdAt: Date;

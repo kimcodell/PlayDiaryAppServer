@@ -1,4 +1,12 @@
-import { IsNumber, IsString, IsIn, IsDate, IsUrl } from 'class-validator';
+import {
+  IsNumber,
+  IsString,
+  IsIn,
+  IsDate,
+  IsUrl,
+  IsInt,
+  IsPositive,
+} from 'class-validator';
 import {
   Column,
   Entity,
@@ -12,7 +20,9 @@ import { CompanyEntity } from './company.entity';
 import { FilmographyEntity } from './filmography.entity';
 import { RatingEntity } from './rating.entity';
 import { ReservationEntity } from './reservation.entity';
+import { ReviewEntity } from './review.entity';
 import { UrlEntity } from './url.entity';
+import { WantPlayEntity } from './wantPlay.entity';
 
 @Entity({ name: 'play' })
 export class PlayEntity {
@@ -72,8 +82,13 @@ export class PlayEntity {
   @Column({ type: 'varchar', length: 200 })
   poster: string;
 
+  @IsInt()
+  @IsPositive()
+  @Column({ type: 'int', nullable: false, default: 0 })
+  views: number;
+
   @IsString()
-  @Column({ type: 'varchar' })
+  @Column({ type: 'varchar', nullable: true })
   playApiCode: string;
 
   @OneToMany(() => FilmographyEntity, (filmo) => filmo.play)
@@ -82,9 +97,15 @@ export class PlayEntity {
   @OneToMany(() => ReservationEntity, (reservation) => reservation.play)
   reservation: ReservationEntity[];
 
+  @OneToMany(() => WantPlayEntity, (wantPlay) => wantPlay.play)
+  wantPlay: WantPlayEntity[];
+
   @OneToOne(() => UrlEntity)
   url: UrlEntity;
 
   @OneToMany(() => RatingEntity, (rating) => rating.play)
   rating: RatingEntity[];
+
+  @OneToMany(() => ReviewEntity, (review) => review.play)
+  review: ReviewEntity[];
 }
