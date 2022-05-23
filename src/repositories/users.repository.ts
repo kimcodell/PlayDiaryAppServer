@@ -15,7 +15,9 @@ export class UsersRepository {
     private readonly usersRepository: Repository<UserEntity>,
   ) {}
 
-  // async create(data: SignupRequestDto) {}
+  async create(data: SignupRequestDto) {
+    return '';
+  }
 
   async findUserByEmail(email: string) {
     return this.usersRepository.findOne({
@@ -71,5 +73,12 @@ export class UsersRepository {
       .where('id = :id')
       .setParameter('id', id)
       .execute();
+  }
+
+  async findSimpleUserById(id: number) {
+    return await this.usersRepository.findOne({
+      // select: ['id'],
+      where: { id },
+    });
   }
 }

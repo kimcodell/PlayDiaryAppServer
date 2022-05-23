@@ -5,7 +5,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JwtStrategy } from 'src/common/guards/jwt.strategy';
-import { UsersRepository } from 'src/users/users.repository';
+import { UsersRepository } from 'src/repositories/users.repository';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 

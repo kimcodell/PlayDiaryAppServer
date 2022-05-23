@@ -1,5 +1,5 @@
 import { LoginByEmailRequestDto } from './../common/dto/loginByEmail.request.dto';
-import { UsersRepository } from '../users/users.repository';
+import { UsersRepository } from '../repositories/users.repository';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';

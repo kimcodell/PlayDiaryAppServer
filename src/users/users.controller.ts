@@ -2,7 +2,9 @@ import { JwtAuthGuard } from './../common/guards/jwt.guard';
 import {
   Controller,
   Get,
+  HttpStatus,
   Param,
+  ParseIntPipe,
   Patch,
   Post,
   Req,
@@ -61,9 +63,17 @@ export class UsersController {
     return 'user wants list';
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post(':userId/follow')
-  followUser(@Param('userId') id: string) {
-    return 'follow user';
+  followUser(
+    @Req() req: Request,
+    @Param(
+      'userId',
+      new ParseIntPipe({ errorHttpStatusCode: HttpStatus.NOT_ACCEPTABLE }),
+    )
+    id: number,
+  ) {
+    return this.usersService.followUser(req.user as number, id);
   }
 
   @Patch('profile')
